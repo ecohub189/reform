@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the Utopian Dream | The Spirit of Reform</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=UnifrakturMaguntia&family=IM+Fell+English+SC&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --paper-base: #e8dfcc;
+    --paper-grain: #dfd4bb;
+    --ink: #2b2b2b;
+    --ink-muted: rgba(43,43,43,0.7);
+    --accent: #4a5d4e;
+}
+
+body {
+    background-color: var(--paper-base);
+    background-image: 
+        linear-gradient(rgba(232, 223, 204, 0.4), rgba(223, 212, 187, 0.4)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    color: var(--ink);
+    font-family: 'Libre Baskerville', serif;
+    line-height: 1.45;
+    padding-bottom: 50px;
+    padding-top: 60px;
+}
+
+/* Sticky Navbar */
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--paper-base);
+    border-bottom: 3px double var(--ink);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    font-family: 'IM Fell English SC', serif;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    opacity: 0.7;
+}
+
+.paper-container {
+    box-shadow: 0 0 20px rgba(0,0,0,0.1), inset 0 0 100px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.paper-container:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>'), auto;
+}
+
+.newspaper-header {
+    border-bottom: 3px double var(--ink);
+    border-top: 3px double var(--ink);
+    padding: 15px 0;
+    margin-bottom: 25px;
+}
+
+.title-main {
+    font-family: 'IM Fell English SC', serif;
+    letter-spacing: -2px;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    filter: contrast(1.2);
+}
+
+.column-divider {
+    border-right: 1px solid rgba(43,43,43,0.15);
+}
+
+.woodblock-btn {
+    border: 2px solid var(--ink);
+    padding: 8px 15px;
+    font-family: 'IM Fell English SC', serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-block;
+    background: transparent;
+    box-shadow: 2px 2px 0px var(--ink);
+    cursor: pointer;
+}
+
+.woodblock-btn:hover {
+    background: var(--ink);
+    color: var(--paper-base);
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0px var(--ink);
+}
+
+.sidebar-title {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 12px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.ornament {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    color: var(--ink);
+    opacity: 0.6;
+}
+
+.form-container {
+    border: 2px solid var(--ink);
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.form-label {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--ink);
+    background: rgba(255, 255, 255, 0.5);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.society-card {
+    border: 1px solid var(--ink);
+    padding: 15px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.society-card.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.radio-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+}
+
+/* Custom Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--paper-base);
+    background-image: 
+        linear-gradient(rgba(232, 223, 204, 0.4), rgba(223, 212, 187, 0.4)),
+        url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    border: 6px double var(--ink);
+    padding: 40px;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    position: relative;
+    transform: scale(0.7) translateY(-50px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-title {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.modal-text {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.historical-img {
+    width: 100%;
+    filter: sepia(0.5) contrast(1.1) grayscale(0.2);
+    border: 1px solid var(--ink);
+    padding: 4px;
+    background: white;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+}
+
+.caption {
+    font-size: 0.7rem;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.highlight-box {
+    border: 1px solid var(--ink);
+    padding: 12px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.checkbox-group {
+    margin-bottom: 15px;
+}
+
+.checkbox-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.checkbox-label input {
+    margin-right: 8px;
+}
+</style>
+</head>
+
+<body class="p-2 md:p-8">
+
+<!-- STICKY NAVBAR -->
+<nav class="sticky-navbar">
+    <div class="nav-links">
+        <a href="homepageReform.html">Home</a>
+        <a href="transcendentalism.html">Transcendental</a>
+        <a href="utopianism.html">Utopianism</a>
+        <a href="womens.html">Women's Rights</a>
+        <a href="slavery.html">Anti-Slavery</a>
+        <a href="temperance.html">Temperance</a>
+        <a href="extras.html">Extras</a>
+        <a href="shop.html">Shop</a>
+    </div>
+</nav>
+
+<!-- Custom Modal -->
+<div class="modal-overlay" id="thankYouModal" style="display: none;">
+    <div class="modal-content">
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div style="display: inline-block; width: 80px; height: 80px; border: 3px solid #7a3a3a; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(122, 58, 58, 0.1); margin: 0 auto;">
+                <span style="font-size: 2.5rem;">✓</span>
+            </div>
+        </div>
+        <div class="ornament">❧ ❦ ❧</div>
+        <h2 class="modal-title">Application Received!</h2>
+        <p class="modal-text">
+            We thank you for your interest in joining our community of enlightened souls. 
+            Your application has been recorded in our ledger and will be reviewed by the Society Council.
+            <br><br>
+            <strong>Expect correspondence via post within a fortnight.</strong>
+            <br><br>
+            <em>"In unity, we find strength. In community, we find purpose."</em>
+        </p>
+        <div class="text-center">
+            <button onclick="closeModal()" class="woodblock-btn">Very Well</button>
+        </div>
+        <div class="ornament">❧ ❦ ❧</div>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container relative">
+
+<!-- TOP METADATA -->
+<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+    <span>Applications Welcome</span>
+    <span class="uppercase tracking-[0.3em]">Utopian Communities Registry</span>
+    <span>Est. 1820 — Join Today</span>
+</div>
+
+<!-- MASTHEAD -->
+<header class="text-center mb-8">
+    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2">New Harmony</h1>
+    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
+        <div class="hidden md:block">A Better World Awaits</div>
+        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="dynamicDate"></div>
+    </div>
+</header>
+
+<!-- MAIN GRID -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+    <!-- LEFT COLUMN -->
+    <div class="md:col-span-1 column-divider pr-6">
+        <section class="mb-8">
+            <span class="sidebar-title">Why Join?</span>
+            <div class="highlight-box">
+                <p class="text-[11px] leading-relaxed mb-2">
+                    Escape the corruption and inequality of modern society. Build a new world based on:
+                </p>
+                <ul class="text-[10px] space-y-1 list-none">
+                    <li class="pl-3 relative before:content-['✦'] before:absolute before:left-0">Shared Labor</li>
+                    <li class="pl-3 relative before:content-['✦'] before:absolute before:left-0">Cooperative Living</li>
+                    <li class="pl-3 relative before:content-['✦'] before:absolute before:left-0">Intellectual Growth</li>
+                    <li class="pl-3 relative before:content-['✦'] before:absolute before:left-0">Moral Excellence</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="ornament">❧ ❦ ❧</div>
+
+        <section class="mb-8">
+            <span class="sidebar-title">Requirements</span>
+            <ul class="text-[10px] space-y-2 list-none">
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    <strong>Age:</strong> 18 years or older
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    <strong>Character:</strong> Good moral standing
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    <strong>Commitment:</strong> Minimum 1 year
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    <strong>Skills:</strong> Any trade welcomed
+                </li>
+            </ul>
+        </section>
+
+        <div class="border-4 border-double border-black p-4 bg-white/10">
+            <h4 class="text-xs font-bold text-center mb-2 uppercase underline">Testimonial</h4>
+            <p class="text-[9px] italic leading-relaxed text-center">
+                "I arrived broken by industrial toil. Now, I thrive in a community of equals, working for the common good."
+                <br><span class="font-bold">— J. Fletcher, Brook Farm</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- CENTER COLUMN -->
+    <div class="md:col-span-2 column-divider px-4">
+        <article>
+            <h2 class="text-4xl md:text-5xl text-center mb-6 leading-none uppercase">
+                Application for<br>
+                <span class="italic text-2xl mt-2 block normal-case font-serif">Utopian Community Membership</span>
+            </h2>
+
+            <!-- Society Selector -->
+            <div class="form-container mb-6">
+                <label class="form-label">Select Your Desired Community:</label>
+                <select id="societySelect" class="form-select" onchange="updateSociety()">
+                    <option value="">— Choose a Society —</option>
+                    <option value="brook">Brook Farm (West Roxbury, MA)</option>
+                    <option value="new-harmony">New Harmony (Indiana)</option>
+                    <option value="oneida">Oneida Community (New York)</option>
+                    <option value="fruitlands">Fruitlands (Harvard, MA)</option>
+                    <option value="nashoba">Nashoba (Tennessee)</option>
+                    <option value="shakers">Shaker Village (Various Locations)</option>
+                </select>
+
+                <!-- Society Descriptions -->
+                <div id="brook" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">Brook Farm (Est. 1841)</h4>
+                    <p class="text-xs italic mb-2">Founded by George Ripley</p>
+                    <p class="text-[11px]">A transcendentalist experiment in communal living. Members share agricultural labor and intellectual pursuits. Everyone works 3 hours daily; the rest is devoted to education and culture.</p>
+                </div>
+
+                <div id="new-harmony" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">New Harmony (Est. 1825)</h4>
+                    <p class="text-xs italic mb-2">Founded by Robert Owen</p>
+                    <p class="text-[11px]">A socialist utopia based on cooperation and equality. Features advanced education, scientific inquiry, and communal ownership. No private property; all share in the collective prosperity.</p>
+                </div>
+
+                <div id="oneida" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">Oneida Community (Est. 1848)</h4>
+                    <p class="text-xs italic mb-2">Founded by John Humphrey Noyes</p>
+                    <p class="text-[11px]">A religious perfectionist community practicing "complex marriage" and shared property. Known for silverware manufacturing and progressive child-rearing practices.</p>
+                </div>
+
+                <div id="fruitlands" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">Fruitlands (Est. 1843)</h4>
+                    <p class="text-xs italic mb-2">Founded by Bronson Alcott & Charles Lane</p>
+                    <p class="text-[11px]">An ultra-transcendentalist experiment in ascetic living. Strict vegetarian diet, no animal products, manual labor only. Seeking spiritual perfection through simplicity.</p>
+                </div>
+
+                <div id="nashoba" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">Nashoba (Est. 1825)</h4>
+                    <p class="text-xs italic mb-2">Founded by Frances Wright</p>
+                    <p class="text-[11px]">An interracial cooperative community focused on abolition and racial equality. Former enslaved people work toward purchasing their freedom through communal labor.</p>
+                </div>
+
+                <div id="shakers" class="society-card">
+                    <h4 class="font-bold mb-2 text-sm">Shaker Village (Est. 1770s)</h4>
+                    <p class="text-xs italic mb-2">Led by Mother Ann Lee's followers</p>
+                    <p class="text-[11px]">A religious community practicing celibacy, pacifism, and equality. Renowned for exceptional craftsmanship, innovative agriculture, and ecstatic worship practices.</p>
+                </div>
+            </div>
+
+            <!-- Application Form -->
+            <form id="applicationForm" class="form-container" onsubmit="submitApplication(event)">
+                <h3 class="text-xl font-bold mb-4 border-b border-black pb-2" style="font-family: 'IM Fell English SC', serif;">PERSONAL PARTICULARS</h3>
+                
+                <label class="form-label">Full Christian Name:</label>
+                <input type="text" class="form-input" required placeholder="John Smith">
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="form-label">Age:</label>
+                        <input type="number" class="form-input" required min="18" max="100" placeholder="25">
+                    </div>
+                    <div>
+                        <label class="form-label">Sex:</label>
+                        <select class="form-select" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label class="form-label">Current Residence:</label>
+                <input type="text" class="form-input" required placeholder="Boston, Massachusetts">
+
+                <label class="form-label">Trade or Profession:</label>
+                <input type="text" class="form-input" required placeholder="Carpenter, Seamstress, Teacher, etc.">
+
+                <div class="ornament text-sm">❖</div>
+
+                <h3 class="text-xl font-bold mb-4 border-b border-black pb-2" style="font-family: 'IM Fell English SC', serif;">PHILOSOPHICAL INQUIRY</h3>
+
+                <label class="form-label">What draws you to communal living?</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="motivation" value="inequality">
+                        Disgust with industrial inequality
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="motivation" value="spiritual">
+                        Spiritual enlightenment
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="motivation" value="intellectual">
+                        Intellectual community
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="motivation" value="simple">
+                        Desire for simple living
+                    </label>
+                </div>
+
+                <label class="form-label">How do you view private property?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="property" value="abolish" required>
+                        Should be abolished
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="property" value="limited" required>
+                        Limited personal items
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="property" value="undecided" required>
+                        Still contemplating
+                    </label>
+                </div>
+
+                <label class="form-label">Experience with Manual Labor:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="labor" value="extensive" required>
+                        Extensive
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="labor" value="moderate" required>
+                        Moderate
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="labor" value="none" required>
+                        None (willing to learn)
+                    </label>
+                </div>
+
+                <label class="form-label">In your own words, describe your vision of a perfect society:</label>
+                <textarea class="form-textarea" rows="4" required placeholder="A society where..."></textarea>
+
+                <div class="ornament text-sm">❖</div>
+
+                <h3 class="text-xl font-bold mb-4 border-b border-black pb-2" style="font-family: 'IM Fell English SC', serif;">COMMITMENT</h3>
+
+                <label class="form-label">Duration of Commitment:</label>
+                <select class="form-select" required>
+                    <option value="">Select Duration</option>
+                    <option value="1-year">1 Year (Trial Period)</option>
+                    <option value="3-year">3 Years</option>
+                    <option value="5-year">5 Years</option>
+                    <option value="lifetime">Lifetime</option>
+                </select>
+
+                <label class="checkbox-label text-sm mb-4" style="display: block;">
+                    <input type="checkbox" required>
+                    I solemnly pledge to abide by the principles and rules of the community, to labor for the common good, and to treat all members as equals.
+                </label>
+
+                <div class="text-center mt-6">
+                    <button type="submit" class="woodblock-btn text-lg px-12 py-3">
+                        Submit Application
+                    </button>
+                </div>
+            </form>
+        </article>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="md:col-span-1 pl-6">
+        <section class="mb-8">
+            <span class="sidebar-title">Communities</span>
+            <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400" alt="Brook Farm" class="historical-img">
+            <p class="caption">Brook Farm: A Transcendentalist Paradise</p>
+            
+            <p class="text-[11px] leading-relaxed mb-3">
+                Over 100 utopian experiments currently flourish across the United States, each pursuing its unique vision of the ideal society.
+            </p>
+        </section>
+
+        <div class="ornament">❧ ❦ ❧</div>
+
+        <section class="mb-8">
+            <span class="sidebar-title">Success Stories</span>
+            <div class="text-[10px] space-y-3">
+                <p>
+                    <strong>Shakers:</strong> 6,000 members across 19 villages. Self-sufficient and prosperous.
+                </p>
+                <p>
+                    <strong>Oneida:</strong> 300 members, thriving silverware business, exemplary communal harmony.
+                </p>
+                <p>
+                    <strong>Amana:</strong> 1,800 members in 7 villages. Model of cooperative industry.
+                </p>
+            </div>
+        </section>
+
+        <div class="ornament">❧ ❦ ❧</div>
+
+        <section>
+            <span class="sidebar-title">What to Bring</span>
+            <ul class="text-[10px] space-y-2 list-none">
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    Simple, practical clothing
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    Basic tools of your trade
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    An open mind and willing spirit
+                </li>
+                <li class="pl-3 relative before:content-['•'] before:absolute before:left-0">
+                    Letters of moral character (2 required)
+                </li>
+            </ul>
+        </section>
+
+        <div class="border-2 border-black p-4 mt-6 bg-white/10">
+            <p class="text-[9px] italic text-center leading-relaxed">
+                "The world is weary of the old. The new society begins with those brave enough to step forward."
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="mt-12 pt-6 border-t-4 border-double border-black text-center">
+    <div class="flex flex-col items-center mb-8">
+        <a href="homepageReform.html" class="woodblock-btn text-sm px-10">
+            ← Return to the Home of Reform
+        </a>
+    </div>
+
+    <div class="flex justify-between text-[9px] uppercase font-bold tracking-widest">
+        <div>United Communities of America</div>
+        <div class="text-right">Est. 1820 — Building Tomorrow Today</div>
+    </div>
+    <p class="text-[10px] italic mt-4 opacity-70">"From Many, One Community — From Individualism, Unity"</p>
+</footer>
+
+</div>
+
+<script>
+// Society selector
+function updateSociety() {
+    const select = document.getElementById('societySelect');
+    const cards = document.querySelectorAll('.society-card');
+    
+    cards.forEach(card => card.classList.remove('active'));
+    
+    if (select.value) {
+        document.getElementById(select.value).classList.add('active');
+    }
+}
+
+// Form submission
+function submitApplication(event) {
+    event.preventDefault();
+    
+    const society = document.getElementById('societySelect').value;
+    
+    if (!society) {
+        alert('Please select a community before submitting your application.');
+        return;
+    }
+    
+    // Add a brief loading effect
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Processing...';
+    submitBtn.disabled = true;
+    
+    // Show custom modal after brief delay
+    setTimeout(() => {
+        const modal = document.getElementById('thankYouModal');
+        modal.style.display = 'flex'; // Ensure display is set
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10); // Small delay to trigger transition
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // Reset form
+        document.getElementById('applicationForm').reset();
+        document.getElementById('societySelect').value = '';
+        updateSociety();
+    }, 500);
+}
+
+// Close modal
+function closeModal() {
+    const modal = document.getElementById('thankYouModal');
+    modal.classList.remove('show');
+    // Wait for transition to complete before hiding
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+// Close modal on overlay click
+document.getElementById('thankYouModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+/* Typing Animation */
+const titleEl = document.getElementById("masthead");
+const fullText = "New Harmony";
+titleEl.textContent = "";
+let i = 0;
+const typeInterval = setInterval(() => {
+    titleEl.textContent += fullText[i];
+    i++;
+    if (i >= fullText.length) clearInterval(typeInterval);
+}, 150);
+
+/* Date Setup */
+const dateEl = document.getElementById("dynamicDate");
+const fakeDate = new Date();
+fakeDate.setFullYear(1840);
+dateEl.textContent = fakeDate.toDateString();
+
+/* Rotating Quote */
+const quotes = [
+    "From Each According to Ability",
+    "To Each According to Need",
+    "Unity in Diversity",
+    "The New World Begins Within"
+];
+document.getElementById("rotatingQuote").textContent = quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
+</body>
+</html>
