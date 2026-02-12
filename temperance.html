@@ -59,6 +59,40 @@ body {
     flex-wrap: wrap;
 }
 
+#mobile-menu-btn {
+    display: none;
+    font-family: 'IM Fell English SC', serif;
+    padding: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    #mobile-menu-btn {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: center;
+    }
+}
+
 .nav-links a {
     color: var(--ink);
     text-decoration: none;
@@ -165,7 +199,7 @@ body {
     padding: 12px;
     margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.05);
 }
 
 .pull-quote {
@@ -185,7 +219,8 @@ body {
 
 <!-- STICKY NAVBAR -->
 <nav class="sticky-navbar">
-    <div class="nav-links">
+    <div id="mobile-menu-btn">Menu ☰</div>
+    <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="transcendentalism.html">Transcendental</a>
         <a href="utopianism.html">Utopianism</a>
@@ -194,25 +229,25 @@ body {
         <a href="temperance.html">Temperance</a>
         <a href="extras.html">Extras</a>
         <a href="shop.html">Shop</a>
-                <a href="map.html">Map</a>
+        <a href="map.html">Map</a>
     </div>
 </nav>
 
-<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container relative">
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container relative">
 
 <!-- TOP METADATA -->
-<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+<div class="flex justify-between text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1">
     <span>Extraordinary Supplement</span>
-    <span class="uppercase tracking-[0.3em]">Advik Gupta</span>
+    <span class="uppercase tracking-[0.1em] md:tracking-[0.3em]">Advik Gupta</span>
     <span>No. XXIV — Price: One Halfpenny</span>
 </div>
 
 <!-- MASTHEAD -->
 <header class="text-center mb-8">
-    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2">The Spirit of Reform</h1>
-    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
+    <h1 id="masthead" class="title-main text-4xl md:text-9xl mb-2 min-h-[1.2em]"></h1>
+    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-2 md:px-6 uppercase text-[10px] md:text-xs font-bold">
         <div class="hidden md:block">Volume I</div>
-        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="rotatingQuote" class="text-lg md:text-2xl font-serif py-2 tracking-tight"></div>
         <div id="dynamicDate"></div>
     </div>
 </header>
@@ -221,7 +256,7 @@ body {
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
     <!-- LEFT COLUMN -->
-    <div class="md:col-span-1 column-divider pr-6">
+    <div class="md:col-span-1 md:column-divider md:pr-6">
         <section class="mb-8">
             <span class="sidebar-title">The Beecher Crusade</span>
             <img src="beecher.jpeg" alt="Lyman Beecher" class="historical-img">
@@ -255,11 +290,11 @@ body {
     </div>
 
     <!-- CENTER COLUMN -->
-    <div class="md:col-span-2 column-divider px-4">
+    <div class="md:col-span-2 md:column-divider md:px-4">
         <article>
-            <h2 class="text-4xl md:text-5xl text-center mb-6 leading-none uppercase">
+            <h2 class="text-3xl md:text-5xl text-center mb-6 leading-none uppercase">
                 THE GREAT MORAL REVIVAL<br>
-                <span class="italic text-2xl mt-2 block normal-case font-serif">Reform in the Age of Industry</span>
+                <span class="italic text-xl md:text-2xl mt-2 block normal-case font-serif">Reform in the Age of Industry</span>
             </h2>
 
             <div class="image-box mb-6">
@@ -293,7 +328,7 @@ body {
                 </div>
             </div>
 
-            <div class="pull-quote">
+            <div class="pull-quote px-4">
                 "Individual temperance is the seed; Legal Prohibition is the harvest."
             </div>
 
@@ -301,8 +336,8 @@ body {
                 Mayor Neal Dow of Portland has achieved what many thought impossible: a total ban on the manufacture and sale of liquor. This is no mere moral suasion; it is <strong>Government Enforcement</strong>. His success has ignited a fire, with other states following en suite.
             </p>
 
-            <div class="highlight-box border-double border-4">
-                <h4 class="text-sm font-bold text-center border-b border-black mb-2 pb-1">The Washingtonian Pledge</h4>
+            <div class="highlight-box border-double border-4 p-4">
+                <h4 class="text-sm font-bold text-center border-b border-black mb-2 pb-1 uppercase">The Washingtonian Pledge</h4>
                 <p class="text-xs text-center italic">
                     Focusing on the individual, over 600,000 members have pledged total abstinence. Notably, 150,000 of these were formerly hard drinkers.
                 </p>
@@ -311,7 +346,7 @@ body {
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="md:col-span-1 pl-6">
+    <div class="md:col-span-1 md:pl-6">
         <section class="mb-8">
             <span class="sidebar-title">The Ladies' Resolve</span>
             <img src="alcohol.jpeg" alt="Men sitting around bottles of alcohol" class="historical-img">
@@ -346,7 +381,7 @@ body {
 
 <!-- IMAGE CAROUSEL SECTION -->
 <section class="mt-12 pt-8 border-t-4 border-double border-black">
-    <h2 class="text-4xl text-center mb-8 uppercase font-bold" style="font-family: 'IM Fell English SC', serif;">
+    <h2 class="text-2xl md:text-4xl text-center mb-8 uppercase font-bold" style="font-family: 'IM Fell English SC', serif;">
         Gallery of Temperance Reform
     </h2>
     
@@ -456,10 +491,10 @@ body {
         </div>
 
         <!-- Navigation Buttons -->
-        <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 woodblock-btn bg-white/80 hover:bg-black hover:text-white px-4 py-2 -ml-4 md:-ml-12">
+        <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 woodblock-btn bg-white/80 hover:bg-black hover:text-white px-4 py-2 -ml-2 md:-ml-12 z-10">
             ←
         </button>
-        <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 woodblock-btn bg-white/80 hover:bg-black hover:text-white px-4 py-2 -mr-4 md:-mr-12">
+        <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 woodblock-btn bg-white/80 hover:bg-black hover:text-white px-4 py-2 -mr-2 md:-mr-12 z-10">
             →
         </button>
 
@@ -483,7 +518,7 @@ body {
         </a>
     </div>
 
-    <div class="flex justify-between text-[9px] uppercase font-bold tracking-widest">
+    <div class="flex justify-between text-[9px] uppercase font-bold tracking-widest px-2">
         <div>Sources: Library of Congress; American Temperance Society Records.</div>
         <div class="text-right">Printed by: Cold Water Press, Boston</div>
     </div>
@@ -493,6 +528,15 @@ body {
 </div>
 
 <script>
+/* Mobile Menu Logic */
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('navLinks');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.textContent = navLinks.classList.contains('active') ? 'Close ✕' : 'Menu ☰';
+});
+
 /* Typing Animation */
 const titleEl = document.getElementById("masthead");
 const fullText = "The Spirit of Reform";

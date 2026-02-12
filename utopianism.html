@@ -26,7 +26,11 @@ body {
     font-family: 'Libre Baskerville', serif;
     line-height: 1.45;
     padding-bottom: 50px;
-    padding-top: 60px; /* Offset for sticky navbar */
+}
+
+/* CUSTOM CURSOR */
+.paper-container:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>'), auto;
 }
 
 /* Sticky Navbar Styles */
@@ -51,6 +55,38 @@ body {
     font-size: 0.85rem;
     font-weight: bold;
     flex-wrap: wrap;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+        padding: 10px;
+        font-family: 'IM Fell English SC', serif;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        border-bottom: 1px solid var(--ink);
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        padding: 12px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .nav-links a {
@@ -83,20 +119,49 @@ body {
     letter-spacing: -2px;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     filter: contrast(1.2);
+    min-height: 1.2em;
+}
+
+/* Typing indicator cursor */
+.title-main::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .column-divider {
-    border-right: 1px solid rgba(43,43,43,0.15);
+    border-right: none;
+}
+
+@media (min-width: 768px) {
+    .column-divider {
+        border-right: 1px solid rgba(43,43,43,0.15);
+    }
 }
 
 .drop-cap::first-letter {
     float: left;
     font-family: 'UnifrakturMaguntia', cursive;
-    font-size: 5rem;
-    line-height: 0.7;
-    padding-top: 10px;
-    padding-right: 12px;
+    font-size: 4rem;
+    line-height: 0.8;
+    padding-top: 5px;
+    padding-right: 10px;
     color: #000;
+}
+
+@media (min-width: 768px) {
+    .drop-cap::first-letter {
+        font-size: 5rem;
+        line-height: 0.7;
+        padding-top: 10px;
+        padding-right: 12px;
+    }
 }
 
 .woodblock-btn {
@@ -142,7 +207,13 @@ h2, h3, h4 {
 }
 
 .main-article {
-    padding: 0 1.5rem;
+    padding: 1rem 0;
+}
+
+@media (min-width: 768px) {
+    .main-article {
+        padding: 0 1.5rem;
+    }
 }
 
 .pull-quote {
@@ -240,8 +311,9 @@ h2, h3, h4 {
 <body class="p-2 md:p-8">
 
 <!-- STICKY NAVBAR -->
-<nav class="sticky-navbar">
-    <div class="nav-links">
+<nav class="sticky-navbar" id="navbar">
+    <div id="menu-toggle">Menu ☰</div>
+    <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="transcendentalism.html">Transcendental</a>
         <a href="utopianism.html">Utopianism</a>
@@ -250,25 +322,25 @@ h2, h3, h4 {
         <a href="temperance.html">Temperance</a>
         <a href="extras.html">Extras</a>
         <a href="shop.html">Shop</a>
-                <a href="map.html">Map</a>
+        <a href="map.html">Map</a>
     </div>
 </nav>
 
-<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container">
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container">
 
 <!-- TOP METADATA -->
-<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+<div class="flex flex-wrap justify-between text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1 gap-2">
     <span>Special Edition: The Ideal State</span>
-    <span class="uppercase tracking-[0.3em]">Aayush Gunjan</span>
+    <span class="uppercase tracking-[0.3em] hidden sm:inline">Aayush Gunjan</span>
     <span>Rochester, N.Y. — Price: Two Cents</span>
 </div>
 
 <!-- MASTHEAD -->
 <header class="text-center mb-8">
-    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2 text-center">Utopian Visions</h1>
-    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
+    <h1 id="masthead" class="title-main text-5xl md:text-9xl mb-2 text-center"></h1>
+    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-[10px] md:text-xs font-bold gap-2">
         <div class="hidden md:block">Volume I — No. 1</div>
-        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="rotatingQuote" class="text-lg md:text-2xl font-serif py-1 tracking-tight"></div>
         <div id="dynamicDate"></div>
     </div>
 </header>
@@ -277,7 +349,7 @@ h2, h3, h4 {
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
 <!-- LEFT COLUMN -->
-<div class="md:col-span-1 column-divider pr-6 sidebar">
+<div class="md:col-span-1 order-2 md:order-1 column-divider md:pr-6 sidebar">
 <section class="mb-8">
     <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Ancient Seeds</h2>
     <p class="mb-4 text-xs leading-relaxed">Before the word existed, the dream was written in the stars and the scriptures.</p>
@@ -307,14 +379,14 @@ h2, h3, h4 {
 </div>
 
 <!-- CENTER COLUMN -->
-<div class="md:col-span-2 column-divider main-article">
+<div class="md:col-span-2 order-1 md:order-2 column-divider main-article">
 <article>
     <h2 class="text-4xl md:text-5xl text-center mb-6 leading-none uppercase">
         EXPERIMENTS IN VIRTUE:<br>
         <span class="italic text-2xl mt-2 block normal-case font-serif">The Rise of the American Utopias</span>
     </h2>
 
-    <p class="drop-cap text-base mb-6 text-justify leading-relaxed">
+    <p class="drop-cap text-sm md:text-base mb-6 text-justify leading-relaxed">
         Utopianism, the aspiration to create a better, perfect society, swept across the American landscape in the early 1800s. Seeking to escape the perceived corruptions of modern life, brave souls set up communities separate from society to improve their lives through the sharing of property, labor, and family life. These organizers hoped to promote virtue and inspire the world outside their fences.
     </p>
 
@@ -369,14 +441,14 @@ h2, h3, h4 {
 </div>
 
 <!-- RIGHT COLUMN -->
-<div class="md:col-span-1 pl-6 sidebar">
+<div class="md:col-span-1 order-3 md:pl-6 sidebar">
 <section class="mb-8">
     <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">The Shakers</h2>
     
     <img src="shakers.jpeg" alt="The Shakers" class="society-image">
     <span class="image-caption">A Shaker religious dance, illustrative of their communal worship.</span>
     
-    <p class="text-xs mb-4 leading-relaxed italic">Known for celibacy and high-quality crafts, they are among the most successful of the communal experiments.</p>
+    <p class="text-[11px] mb-4 leading-relaxed italic">Known for celibacy and high-quality crafts, they are among the most successful of the communal experiments.</p>
 </section>
 
 <div class="ornament">❧ ❦ ❧</div>
@@ -442,16 +514,34 @@ h2, h3, h4 {
 </div>
 
 <script>
+/* Mobile Navbar Logic */
+function adjustBodyPadding() {
+    const navbarHeight = document.getElementById('navbar').offsetHeight;
+    document.body.style.paddingTop = (navbarHeight + 10) + 'px';
+}
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+menuToggle.onclick = () => {
+    navLinks.classList.toggle('active');
+    adjustBodyPadding();
+};
+
+window.onload = adjustBodyPadding;
+window.onresize = adjustBodyPadding;
+
 /* Typing Animation */
 const titleEl = document.getElementById("masthead");
 const fullText = "Utopian Visions";
-titleEl.textContent = "";
 let i = 0;
-const typeInterval = setInterval(() => {
-    titleEl.textContent += fullText[i];
-    i++;
-    if (i >= fullText.length) clearInterval(typeInterval);
-}, 150);
+function typeEffect() {
+    if (i < fullText.length) {
+        titleEl.textContent += fullText.charAt(i);
+        i++;
+        setTimeout(typeEffect, 150);
+    }
+}
+typeEffect();
 
 /* Fake Date */
 const dateEl = document.getElementById("dynamicDate");

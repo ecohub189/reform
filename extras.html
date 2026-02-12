@@ -30,7 +30,7 @@ body {
     padding-top: 60px;
 }
 
-/* Sticky Navbar */
+/* Sticky Navbar & Responsive Logic */
 .sticky-navbar {
     position: fixed;
     top: 0;
@@ -40,6 +40,18 @@ body {
     background-color: var(--paper-base);
     border-bottom: 3px double var(--ink);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#mobile-menu-btn {
+    display: none;
+    font-family: 'IM Fell English SC', serif;
+    padding: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .nav-links {
@@ -63,6 +75,24 @@ body {
 .nav-links a:hover {
     text-decoration: underline;
     opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    #mobile-menu-btn { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .paper-container {
@@ -91,6 +121,15 @@ body {
 
 .column-divider {
     border-right: 1px solid rgba(43,43,43,0.15);
+}
+
+@media (max-width: 767px) {
+    .column-divider {
+        border-right: none;
+        border-bottom: 1px solid rgba(43,43,43,0.15);
+        padding-right: 0 !important;
+        padding-bottom: 2rem;
+    }
 }
 
 .woodblock-btn {
@@ -186,7 +225,8 @@ body {
 
 <!-- STICKY NAVBAR -->
 <nav class="sticky-navbar">
-    <div class="nav-links">
+    <div id="mobile-menu-btn">Menu ☰</div>
+    <div class="nav-links" id="nav-links">
         <a href="homepageReform.html">Home</a>
         <a href="transcendentalism.html">Transcendental</a>
         <a href="utopianism.html">Utopianism</a>
@@ -199,13 +239,13 @@ body {
     </div>
 </nav>
 
-<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container relative">
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container relative">
 
 <!-- TOP METADATA -->
-<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+<div class="flex justify-between text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1">
     <span>Illustrated Supplement</span>
-    <span class="uppercase tracking-[0.3em]">Moving Picture Gallery</span>
-    <span>Boston, Mass. — Price: Three Cents</span>
+    <span class="uppercase tracking-[0.1em] md:tracking-[0.3em]">Moving Picture Gallery</span>
+    <span class="hidden sm:inline">Boston, Mass. — Price: Three Cents</span>
 </div>
 
 <!-- MASTHEAD -->
@@ -213,7 +253,7 @@ body {
     <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2">The Extras</h1>
     <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
         <div class="hidden md:block">Special Edition</div>
-        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="rotatingQuote" class="text-xl md:text-2xl font-serif py-2 tracking-tight"></div>
         <div id="dynamicDate"></div>
     </div>
 </header>
@@ -222,7 +262,7 @@ body {
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
     <!-- LEFT COLUMN -->
-    <div class="md:col-span-1 column-divider pr-6">
+    <div class="md:col-span-1 column-divider md:pr-6">
         <section class="mb-8">
             <span class="sidebar-title">A Modern Marvel</span>
             <div class="playbill mb-4">
@@ -264,11 +304,11 @@ body {
     </div>
 
     <!-- CENTER COLUMN -->
-    <div class="md:col-span-2 column-divider px-4">
+    <div class="md:col-span-2 column-divider px-0 md:px-4">
         <article>
-            <h2 class="text-4xl md:text-5xl text-center mb-6 leading-none uppercase">
+            <h2 class="text-3xl md:text-5xl text-center mb-6 leading-none uppercase">
                 THE MOVING PICTURE<br>
-                <span class="italic text-2xl mt-2 block normal-case font-serif">Chronicle of the Temperance Cause</span>
+                <span class="italic text-xl md:text-2xl mt-2 block normal-case font-serif">Chronicle of the Temperance Cause</span>
             </h2>
 
             <div class="video-frame">
@@ -304,7 +344,7 @@ body {
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="md:col-span-1 pl-6">
+    <div class="md:col-span-1 md:pl-6">
         <section class="mb-8">
             <span class="sidebar-title">Related Materials</span>
             <div class="space-y-4">
@@ -354,14 +394,14 @@ body {
 <!-- FOOTER -->
 <footer class="mt-12 pt-6 border-t-4 border-double border-black text-center">
     <div class="flex flex-col items-center mb-8">
-        <a href="index.html" class="woodblock-btn text-sm px-10">
+        <a href="homepageReform.html" class="woodblock-btn text-sm px-10">
             ← Return to the Home of Reform
         </a>
     </div>
 
-    <div class="flex justify-between text-[9px] uppercase font-bold tracking-widest">
+    <div class="flex flex-col md:flex-row justify-between text-[9px] uppercase font-bold tracking-widest gap-2">
         <div>Sources: Moving Picture Archive; Temperance Society Records</div>
-        <div class="text-right">Presented by: The Reform Press</div>
+        <div class="md:text-right">Presented by: The Reform Press</div>
     </div>
     <p class="text-[10px] italic mt-4 opacity-70">"Technology in Service of Morality — Innovation for Justice"</p>
 </footer>
@@ -369,6 +409,15 @@ body {
 </div>
 
 <script>
+/* Mobile Menu Logic */
+const menuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuBtn.textContent = navLinks.classList.contains('active') ? 'Close ✕' : 'Menu ☰';
+});
+
 /* Typing Animation */
 const titleEl = document.getElementById("masthead");
 const fullText = "The Extras";

@@ -30,7 +30,7 @@ body {
     padding-top: 60px; /* Offset for sticky navbar */
 }
 
-/* Sticky Navbar Styles */
+/* Sticky Navbar & Responsive Logic */
 .sticky-navbar {
     position: fixed;
     top: 0;
@@ -40,6 +40,18 @@ body {
     background-color: var(--paper-base);
     border-bottom: 3px double var(--ink);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#mobile-menu-btn {
+    display: none;
+    font-family: 'IM Fell English SC', serif;
+    padding: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .nav-links {
@@ -63,6 +75,24 @@ body {
 .nav-links a:hover {
     text-decoration: underline;
     opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    #mobile-menu-btn { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .nav-links.active { display: flex; }
+    .nav-links a {
+        display: block;
+        padding: 12px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        width: 100%;
+        text-align: center;
+    }
 }
 
 /* Deckled edge / Paper texture container */
@@ -223,7 +253,8 @@ body {
 
 <!-- STICKY NAVBAR -->
 <nav class="sticky-navbar">
-    <div class="nav-links">
+    <div id="mobile-menu-btn">Menu ☰</div>
+    <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="transcendentalism.html">Transcendental</a>
         <a href="utopianism.html">Utopianism</a>
@@ -232,25 +263,25 @@ body {
         <a href="temperance.html">Temperance</a>
         <a href="extras.html">Extras</a>
         <a href="shop.html">Shop</a>
-                <a href="map.html">Map</a>
+        <a href="map.html">Map</a>
     </div>
 </nav>
 
-<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container relative">
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container relative">
 
 <!-- TOP METADATA -->
-<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+<div class="flex justify-between text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1">
     <span>Seneca Falls Intelligence</span>
-    <span class="uppercase tracking-[0.3em]">Mason Crow</span>
+    <span class="uppercase tracking-[0.3em] hidden sm:inline">Mason Crow</span>
     <span>Seneca Falls, N.Y. — Price: One Cent</span>
 </div>
 
 <!-- MASTHEAD -->
 <header class="text-center mb-8">
-    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2">The Lily</h1>
+    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2 min-h-[1.2em]"></h1>
     <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
         <div class="hidden md:block">Volume I</div>
-        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="rotatingQuote" class="text-xl md:text-2xl font-serif py-2 tracking-tight"></div>
         <div id="dynamicDate"></div>
     </div>
 </header>
@@ -259,7 +290,7 @@ body {
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
 <!-- LEFT COLUMN: AGENDA & LEADERS -->
-<div class="md:col-span-1 column-divider pr-6 sidebar">
+<div class="md:col-span-1 md:border-r border-slate-900/20 pr-0 md:pr-6 sidebar">
     <section class="mb-8">
         <span class="sidebar-title">The Reform Agenda</span>
         <div class="todo-item"><div class="checkbox"></div> <span>Universal Suffrage</span></div>
@@ -288,7 +319,7 @@ body {
 </div>
 
 <!-- CENTER COLUMN: MAIN ARTICLE -->
-<div class="md:col-span-2 column-divider px-4">
+<div class="md:col-span-2 md:border-r border-slate-900/20 px-0 md:px-4">
     <article>
         <h2 class="text-4xl md:text-6xl text-center mb-6 leading-none uppercase">
             A Declaration of<br>
@@ -327,7 +358,7 @@ body {
 </div>
 
 <!-- RIGHT COLUMN: DISPATCH & ADS -->
-<div class="md:col-span-1 pl-6 sidebar">
+<div class="md:col-span-1 pl-0 md:pl-6 sidebar">
     <section class="mb-8">
         <span class="sidebar-title">The Lily Dispatch</span>
         <p class="text-[11px] mb-4 leading-relaxed italic">The first newspaper edited by and for women. Published by Amelia Bloomer, spreading the word of reform through the electric ether.</p>
@@ -376,6 +407,14 @@ body {
 </div>
 
 <script>
+/* Mobile Menu */
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navLinks = document.getElementById('navLinks');
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuBtn.textContent = navLinks.classList.contains('active') ? 'Close ✕' : 'Menu ☰';
+});
+
 /* Typing Animation */
 const titleEl = document.getElementById("masthead");
 const fullText = "The Lily";

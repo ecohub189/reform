@@ -27,7 +27,6 @@ body {
     font-family: 'Libre Baskerville', serif;
     line-height: 1.45;
     padding-bottom: 50px;
-    padding-top: 60px;
 }
 
 /* Sticky Navbar */
@@ -52,6 +51,38 @@ body {
     font-size: 0.85rem;
     font-weight: bold;
     flex-wrap: wrap;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+        padding: 10px;
+        font-family: 'IM Fell English SC', serif;
+        text-transform: uppercase;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        border-bottom: 1px solid var(--ink);
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        padding: 12px;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .nav-links a {
@@ -87,10 +118,29 @@ body {
     letter-spacing: -2px;
     text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     filter: contrast(1.2);
+    min-height: 1.2em;
+}
+
+.title-main::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .column-divider {
-    border-right: 1px solid rgba(43,43,43,0.15);
+    border-right: none;
+}
+
+@media (min-width: 768px) {
+    .column-divider {
+        border-right: 1px solid rgba(43,43,43,0.15);
+    }
 }
 
 .woodblock-btn {
@@ -133,7 +183,7 @@ body {
 
 .form-container {
     border: 2px solid var(--ink);
-    padding: 25px;
+    padding: 15px md:padding-25px;
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
 }
@@ -223,7 +273,7 @@ body {
         linear-gradient(rgba(232, 223, 204, 0.4), rgba(223, 212, 187, 0.4)),
         url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     border: 6px double var(--ink);
-    padding: 40px;
+    padding: 20px mdpadding-40px;
     max-width: 550px;
     width: 90%;
     box-shadow: 0 20px 60px rgba(0,0,0,0.8);
@@ -238,7 +288,7 @@ body {
 
 .modal-title {
     font-family: 'IM Fell English SC', serif;
-    font-size: 2rem;
+    font-size: 1.5rem md:text-2rem;
     text-align: center;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -247,7 +297,7 @@ body {
 .modal-text {
     text-align: center;
     margin-bottom: 25px;
-    font-size: 1rem;
+    font-size: 0.9rem md:text-1rem;
     line-height: 1.6;
 }
 
@@ -296,8 +346,9 @@ body {
 <body class="p-2 md:p-8">
 
 <!-- STICKY NAVBAR -->
-<nav class="sticky-navbar">
-    <div class="nav-links">
+<nav class="sticky-navbar" id="navbar">
+    <div id="menu-toggle">Menu ☰</div>
+    <div class="nav-links" id="nav-links">
         <a href="homepageReform.html">Home</a>
         <a href="transcendentalism.html">Transcendental</a>
         <a href="utopianism.html">Utopianism</a>
@@ -306,7 +357,7 @@ body {
         <a href="temperance.html">Temperance</a>
         <a href="extras.html">Extras</a>
         <a href="shop.html">Shop</a>
-                <a href="map.html">Map</a>
+        <a href="map.html">Map</a>
     </div>
 </nav>
 
@@ -314,8 +365,8 @@ body {
 <div class="modal-overlay" id="thankYouModal" style="display: none;">
     <div class="modal-content">
         <div style="text-align: center; margin-bottom: 15px;">
-            <div style="display: inline-block; width: 80px; height: 80px; border: 3px solid #7a3a3a; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(122, 58, 58, 0.1); margin: 0 auto;">
-                <span style="font-size: 2.5rem;">✓</span>
+            <div style="display: inline-block; width: 60px; height: 60px; border: 3px solid #7a3a3a; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(122, 58, 58, 0.1); margin: 0 auto;">
+                <span style="font-size: 2rem;">✓</span>
             </div>
         </div>
         <div class="ornament">❧ ❦ ❧</div>
@@ -335,21 +386,21 @@ body {
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto border-4 border-double border-black p-6 bg-opacity-50 paper-container relative">
+<div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container relative">
 
 <!-- TOP METADATA -->
-<div class="flex justify-between text-xs font-bold border-b-2 border-black mb-2 pb-1">
+<div class="flex flex-wrap justify-between text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1 gap-2">
     <span>Applications Welcome</span>
-    <span class="uppercase tracking-[0.3em]">Utopian Communities Registry</span>
+    <span class="uppercase tracking-[0.3em] hidden sm:inline">Utopian Communities Registry</span>
     <span>Est. 1820 — Join Today</span>
 </div>
 
 <!-- MASTHEAD -->
 <header class="text-center mb-8">
-    <h1 id="masthead" class="title-main text-6xl md:text-9xl mb-2">New Harmony</h1>
-    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-xs font-bold">
+    <h1 id="masthead" class="title-main text-5xl md:text-9xl mb-2"></h1>
+    <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-[10px] md:text-xs font-bold gap-2">
         <div class="hidden md:block">A Better World Awaits</div>
-        <div id="rotatingQuote" class="text-2xl font-serif py-2 tracking-tight"></div>
+        <div id="rotatingQuote" class="text-lg md:text-2xl font-serif py-1 tracking-tight"></div>
         <div id="dynamicDate"></div>
     </div>
 </header>
@@ -358,7 +409,7 @@ body {
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
     <!-- LEFT COLUMN -->
-    <div class="md:col-span-1 column-divider pr-6">
+    <div class="md:col-span-1 order-2 md:order-1 column-divider md:pr-6 sidebar">
         <section class="mb-8">
             <span class="sidebar-title">Why Join?</span>
             <div class="highlight-box">
@@ -404,11 +455,11 @@ body {
     </div>
 
     <!-- CENTER COLUMN -->
-    <div class="md:col-span-2 column-divider px-4">
+    <div class="md:col-span-2 order-1 md:order-2 column-divider px-2 md:px-4">
         <article>
-            <h2 class="text-4xl md:text-5xl text-center mb-6 leading-none uppercase">
+            <h2 class="text-3xl md:text-5xl text-center mb-6 leading-none uppercase">
                 Application for<br>
-                <span class="italic text-2xl mt-2 block normal-case font-serif">Utopian Community Membership</span>
+                <span class="italic text-xl md:text-2xl mt-2 block normal-case font-serif">Utopian Community Membership</span>
             </h2>
 
             <!-- Society Selector -->
@@ -577,7 +628,7 @@ body {
     </div>
 
     <!-- RIGHT COLUMN -->
-    <div class="md:col-span-1 pl-6">
+    <div class="md:col-span-1 order-3 md:pl-6 sidebar">
         <section class="mb-8">
             <span class="sidebar-title">Communities</span>
             <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400" alt="Brook Farm" class="historical-img">
@@ -652,6 +703,22 @@ body {
 </div>
 
 <script>
+/* Mobile Navbar Logic */
+function adjustBodyPadding() {
+    const navbarHeight = document.getElementById('navbar').offsetHeight;
+    document.body.style.paddingTop = (navbarHeight + 10) + 'px';
+}
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+menuToggle.onclick = () => {
+    navLinks.classList.toggle('active');
+    adjustBodyPadding();
+};
+
+window.onload = adjustBodyPadding;
+window.onresize = adjustBodyPadding;
+
 // Society selector
 function updateSociety() {
     const select = document.getElementById('societySelect');
@@ -671,62 +738,67 @@ function submitApplication(event) {
     const society = document.getElementById('societySelect').value;
     
     if (!society) {
-        alert('Please select a community before submitting your application.');
+        // Use custom message instead of alert
+        const modal = document.getElementById('thankYouModal');
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalText = modal.querySelector('.modal-text');
+        
+        modalTitle.textContent = "Selection Required";
+        modalText.textContent = "Please select a community before submitting your application.";
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('show'), 10);
         return;
     }
     
-    // Add a brief loading effect
     const submitBtn = event.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Processing...';
     submitBtn.disabled = true;
     
-    // Show custom modal after brief delay
     setTimeout(() => {
         const modal = document.getElementById('thankYouModal');
-        modal.style.display = 'flex'; // Ensure display is set
-        setTimeout(() => {
-            modal.classList.add('show');
-        }, 10); // Small delay to trigger transition
+        const modalTitle = modal.querySelector('.modal-title');
+        const modalText = modal.querySelector('.modal-text');
         
-        // Reset button
+        modalTitle.textContent = "Application Received!";
+        modalText.innerHTML = `We thank you for your interest in joining our community of enlightened souls. 
+            Your application has been recorded in our ledger and will be reviewed by the Society Council.
+            <br><br><strong>Expect correspondence via post within a fortnight.</strong>
+            <br><br><em>"In unity, we find strength. In community, we find purpose."</em>`;
+            
+        modal.style.display = 'flex';
+        setTimeout(() => modal.classList.add('show'), 10);
+        
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-        
-        // Reset form
         document.getElementById('applicationForm').reset();
         document.getElementById('societySelect').value = '';
         updateSociety();
     }, 500);
 }
 
-// Close modal
 function closeModal() {
     const modal = document.getElementById('thankYouModal');
     modal.classList.remove('show');
-    // Wait for transition to complete before hiding
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
+    setTimeout(() => modal.style.display = 'none', 300);
 }
 
-// Close modal on overlay click
 document.getElementById('thankYouModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
+    if (e.target === this) closeModal();
 });
 
 /* Typing Animation */
 const titleEl = document.getElementById("masthead");
 const fullText = "New Harmony";
-titleEl.textContent = "";
 let i = 0;
-const typeInterval = setInterval(() => {
-    titleEl.textContent += fullText[i];
-    i++;
-    if (i >= fullText.length) clearInterval(typeInterval);
-}, 150);
+function typeEffect() {
+    if (i < fullText.length) {
+        titleEl.textContent += fullText.charAt(i);
+        i++;
+        setTimeout(typeEffect, 150);
+    }
+}
+typeEffect();
 
 /* Date Setup */
 const dateEl = document.getElementById("dynamicDate");
