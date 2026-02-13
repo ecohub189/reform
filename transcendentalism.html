@@ -279,12 +279,25 @@
             padding-top: 20px;
             border-top: 1px solid rgba(0,0,0,0.1);
         }
+
+        /* Script Section Styling */
+        .script-section {
+            background: rgba(0,0,0,0.03);
+            border: 1px dashed var(--ink);
+            padding: 20px;
+            margin-top: 30px;
+            font-family: 'Libre Baskerville', serif;
+        }
+        .script-label {
+            font-family: 'IM Fell English SC', serif;
+            color: #721c24;
+            font-weight: bold;
+        }
     </style>
 </head>
 
 <body class="p-4 md:p-8">
 
-<!-- STICKY NAVBAR -->
 <nav class="sticky-navbar" id="navbar">
     <div id="menu-toggle">Menu ☰</div>
     <div class="nav-links" id="nav-links">
@@ -302,14 +315,12 @@
 
 <div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container">
 
-    <!-- TOP METADATA -->
     <div class="flex flex-wrap justify-between items-center text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1 gap-2">
         <span>New England Intelligence</span>
         <span class="uppercase tracking-[0.3em] hidden sm:inline">Harrison Adamec</span>
         <span>Concord, Mass. — Price: Two Cents</span>
     </div>
 
-    <!-- MASTHEAD -->
     <header class="text-center mb-8">
         <h1 id="masthead" class="title-main text-5xl md:text-8xl lg:text-9xl mb-2"></h1>
         <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-[10px] md:text-xs font-bold gap-2">
@@ -319,22 +330,32 @@
         </div>
     </header>
 
-    <!-- MAIN GRID -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        <!-- LEFT COLUMN -->
         <div class="md:col-span-1 order-2 md:order-1 column-divider md:pr-6 sidebar">
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">The Doctrine</h2>
                 <p class="mb-4 text-xs leading-relaxed text-justify">Truth is found not in books or cathedrals, but through the <strong>intuition</strong> of the soul.</p>
                 <div class="legal-notice uppercase text-[10px]">Inner Conscience</div>
-                <p class="text-[11px] mb-3 italic">Trust the spirit over the law or the church.</p>
+                <p class="text-[11px] mb-3 italic">Trust the spirit over the law or the church. Self-reliance is both physical and mental.</p>
                 <div class="legal-notice uppercase text-[10px]">Sacred Nature</div>
-                <p class="text-[11px] mb-3 italic">The universe is a mirror; nature is our greatest teacher.</p>
+                <p class="text-[11px] mb-3 italic">The universe is a mirror; nature is our greatest teacher, helping us understand ourselves.</p>
                 <div class="legal-notice uppercase text-[10px]">Innate Goodness</div>
-                <p class="text-[11px] mb-3 italic">Humans are born pure; society and conformity corrupt.</p>
+                <p class="text-[11px] mb-3 italic">Humans are born pure; society, materialism, and conformity are the true corruptors.</p>
             </section>
+            
             <div class="ornament">❧ ❦ ❧</div>
+
+            <section class="mb-8">
+                <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">The Lasting Impact</h2>
+                <ul class="text-[11px] space-y-2 list-none italic">
+                    <li class="pl-4 relative before:content-['•'] before:absolute before:left-0">Expanded individualism and self-expression.</li>
+                    <li class="pl-4 relative before:content-['•'] before:absolute before:left-0">Inspired environmental conservation efforts.</li>
+                    <li class="pl-4 relative before:content-['•'] before:absolute before:left-0">Fueled Abolition and Women's Rights.</li>
+                    <li class="pl-4 relative before:content-['•'] before:absolute before:left-0">Permanently altered American poetry and art.</li>
+                </ul>
+            </section>
+
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Opposition</h2>
                 <p class="text-xs uppercase mb-2 font-bold">We Stand Against:</p>
@@ -346,7 +367,6 @@
             </section>
         </div>
 
-        <!-- CENTER COLUMN -->
         <div class="md:col-span-2 order-1 md:order-2 column-divider main-article">
             <article class="article">
                 <h2 class="text-3xl md:text-5xl text-center mb-6 leading-none uppercase">
@@ -354,52 +374,83 @@
                     <span class="italic text-xl md:text-2xl mt-2 block normal-case font-serif">The Awakening in New England</span>
                 </h2>
                 <p class="drop-cap text-sm md:text-base mb-6 text-justify leading-relaxed">
-                    Transcendentalism, born in the 1830s amid the intellectual heart of New England, teaches that truth and spiritual awakening are obtained through intuition and self-trust. It is a bold rejection of the "cold" intellectualism of Unitarianism, favoring instead a direct, vibrant spiritual experience.
+                    Transcendentalism, born in the 1830s amid the intellectual heart of New England, teaches that truth and spiritual awakening are obtained through intuition and self-trust. It is a bold rejection of the "cold" intellectualism of Unitarianism, favoring instead a direct, vibrant spiritual experience inspired by European Romanticism.
                 </p>
                 <div class="pull-quote" id="pullQuote">
                     “Whoso would be a man must be a nonconformist.” — Ralph Waldo Emerson
                 </div>
                 <p class="text-sm md:text-base mb-6 text-justify leading-relaxed">
-                    Inspired by European Romanticism, this movement seeks to awaken the "Over-soul"—that spiritual essence connecting all living beings.
+                    Seeking to awaken the "Over-soul"—that spiritual essence connecting all living beings—this movement began as a dissatisfaction with Rationalism. It serves as a reminder that to be human is to be divine, provided one does not allow society to suppress the spirit.
                 </p>
+                
                 <div class="text-center mt-6">
                     <span id="continueToggle" class="continue-link text-sm font-bold uppercase tracking-widest cursor-pointer">
                         Read of the Leaders and the Printed Word
                     </span>
                 </div>
+                
                 <div id="continuedText" class="continued mt-8">
                     <h3 class="text-xl font-bold border-b-2 border-black pb-1 mb-4">The Vanguard of Thought</h3>
                     <p class="text-sm mb-4 leading-relaxed text-justify">
-                        <strong>Ralph Waldo Emerson</strong> defines self-reliance. Beside him, <strong>Henry David Thoreau</strong> acts as the living example at Walden Pond.
+                        <strong>Ralph Waldo Emerson</strong>, the movement's primary leader, defines self-reliance through works like <em>"The Over-soul"</em>. Beside him, <strong>Henry David Thoreau</strong> acts as the living example, living simply at Walden Pond and advocating for moral resistance in <em>"Civil Disobedience."</em>
                     </p>
+                    <p class="text-sm mb-4 leading-relaxed text-justify">
+                        <strong>Margaret Fuller</strong> expanded these principles into the realm of social justice, writing <em>"Women in the 19th Century"</em> to champion education reform and equality.
+                    </p>
+                    <h3 class="text-xl font-bold border-b-2 border-black pb-1 mb-4 mt-6">The Transcendental Club & The Dial</h3>
+                    <p class="text-sm mb-4 leading-relaxed text-justify">
+                        In 1836, Harvard alumni and Unitarian ministers formed the <strong>Transcendental Club</strong>. To spread their message, they published <strong>"The Dial,"</strong> edited by Fuller and later Emerson, giving a vital voice to the movement’s most provocative thinkers.
+                    </p>
+
+                    <div class="script-section mt-10">
+                        <h4 class="text-center border-b border-black mb-4 italic">Special Report: A Message from Mr. Emerson</h4>
+                        <p class="text-[11px] mb-4 font-bold uppercase tracking-tighter">[Scene: Cinematic B-Roll of nature closeups, dreamy music, pan to RWE]</p>
+                        
+                        <p class="text-sm mb-3 text-justify"><span class="script-label">RWE:</span> Hello everyone, my name is Ralph Waldo Emerson, and today I speak to you from the great outdoors. From the heart of nature herself. These marvelous New England winters always allow me to channel my deepest thoughts. These thoughts of mine are rooted in Transcendentalism.</p>
+                        
+                        <p class="text-[11px] mb-3 italic">[Transition Music Rise, B Roll]</p>
+                        
+                        <p class="text-sm mb-3 text-justify"><span class="script-label">RWE:</span> Transcendentalism focuses on several key principles: We transcendentalists believe in self reliance. Each person’s inner conscience provides a moral sense far more trustworthy than any law or imposed belief. When a person learns to rely on themself, both physically and mentally, they can find truth.</p>
+                        
+                        <p class="text-sm mb-3 text-justify">This also means that when laws are unjust, a transcendentalist must stick with their conscience and morality by acting against it. As Henry David Thoreau said in “Civil Disobedience,” “The only obligation which I have a right to assume is to do at any time what I think is right”</p>
+                        
+                        <p class="text-sm mb-3 text-justify">Furthermore, a transcendentalist believes that humanity is born with an innate moral goodness, and rejects the idea that humans are born sinful. It is rather materialism and conformity that corrupts a person.</p>
+                        
+                        <p class="text-sm mb-3 text-justify">So far, I’ve talked much about a transcendentalist’s inner character, but how can one access this moral awakening? The answer is through nature. Nature is a sacred, spiritual teacher. By spending time in nature, away from noise and conformity, a person can truly understand the universe and themselves. As I wrote in my book “Nature,” “In the woods, we return to reason and faith”</p>
+                        
+                        <p class="text-sm mb-3 text-justify">In conclusion, Transcendentalism teaches that truth and spiritual awakening can be obtained through intuition, nature, and self trust, while not allowing society to suppress the human spirit. Until next time, I’m Ralph Waldo Emerson, urging you to trust yourself, and seek your truth.</p>
+                    </div>
                 </div>
             </article>
         </div>
 
-        <!-- RIGHT COLUMN -->
         <div class="md:col-span-1 order-3 md:pl-6 sidebar">
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">The Library</h2>
                 <div class="book-listing">
                     <strong class="text-xs uppercase">"Nature"</strong>
+                    <p class="text-[10px] italic">Defining the principles of the spirit.</p>
                     <div class="book-image-container">
                         <img src="natureRWE.jpeg" alt="Nature Cover" class="book-image">
                     </div>
                 </div>
                 <div class="book-listing">
                     <strong class="text-xs uppercase">"Walden"</strong>
+                    <p class="text-[10px] italic">Reflection on simplicity and nature.</p>
                     <div class="book-image-container">
                         <img src="walden.jpeg" alt="Walden Cover" class="book-image">
                     </div>
                 </div>
                 <div class="book-listing">
-                    <strong class="text-xs uppercase">"The Dial"</strong>
+                    <strong class="text-xs uppercase">"Civil Disobedience"</strong>
+                    <p class="text-[10px] italic">The rejection of unjust laws.</p>
                     <div class="book-image-container">
                         <img src="dial.jpeg" alt="The Dial Cover" class="book-image">
                     </div>
                 </div>
                 <div class="book-listing">
                     <strong class="text-xs uppercase">"Women in the 19th Century"</strong>
+                    <p class="text-[10px] italic">Expanding rights to all spirits.</p>
                     <div class="book-image-container">
                         <img src="woman.jpeg" alt="Women in the 19th Century Cover" class="book-image">
                     </div>
@@ -409,7 +460,6 @@
 
     </div>
 
-    <!-- HOME NAVIGATION -->
     <div class="home-link-container">
         <a href="index.html" class="woodblock-btn text-sm">
             ← Return to Main Edition
