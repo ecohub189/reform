@@ -26,10 +26,8 @@
             font-family: 'Libre Baskerville', serif;
             line-height: 1.45;
             padding-bottom: 50px;
-            /* Padding top is handled dynamically by JS to prevent overlap */
         }
 
-        /* Sticky Navbar Styles */
         .sticky-navbar {
             position: fixed;
             top: 0;
@@ -53,7 +51,6 @@
             flex-wrap: wrap;
         }
 
-        /* Mobile Menu Toggle */
         #menu-toggle {
             display: none;
         }
@@ -97,7 +94,6 @@
             opacity: 0.7;
         }
 
-        /* Deckled edge / Paper texture container */
         .paper-container {
             box-shadow: 0 0 20px rgba(0,0,0,0.1), inset 0 0 100px rgba(0,0,0,0.05);
             position: relative;
@@ -272,7 +268,6 @@
 
 <body class="p-4 md:p-8">
 
-<!-- STICKY NAVBAR -->
 <nav class="sticky-navbar" id="navbar">
     <div id="menu-toggle">Menu ☰</div>
     <div class="nav-links" id="nav-links">
@@ -290,7 +285,6 @@
 
 <div class="max-w-6xl mx-auto border-4 border-double border-black p-4 md:p-6 bg-opacity-50 paper-container">
 
-    <!-- TOP METADATA -->
     <div class="flex flex-wrap justify-between items-center text-[10px] md:text-xs font-bold border-b-2 border-black mb-2 pb-1 gap-2">
         <div class="flex items-center">
             <img src="logo.png" alt="Logo" class="corner-logo">
@@ -300,7 +294,6 @@
         <span>Rochester, N.Y. — Price: Two Cents</span>
     </div>
 
-    <!-- MASTHEAD -->
     <header class="text-center mb-8">
         <h1 id="masthead" class="title-main text-5xl md:text-8xl lg:text-9xl mb-2">The Spirit of Reform</h1>
         <div class="newspaper-header flex flex-col md:flex-row justify-between items-center px-6 uppercase text-[10px] md:text-xs font-bold gap-2">
@@ -310,14 +303,12 @@
         </div>
     </header>
 
-    <!-- MAIN GRID -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        <!-- LEFT COLUMN (Stacks on top for mobile) -->
         <div class="md:col-span-1 order-2 md:order-1 column-divider md:pr-6 sidebar">
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Anti-Slavery Alert</h2>
-                <p class="text-sm italic mb-2">From the Encrypted Ledger of Mr. Douglass:</p>
+                <p class="text-sm italic mb-2">From the Ledger of Mr. Douglass:</p>
                 <p id="dailyBlurb" class="text-xs mb-4 leading-relaxed"></p>
                 <a href="slavery.html" class="woodblock-btn text-xs">View the Statement</a>
             </section>
@@ -339,30 +330,29 @@
             </div>
         </div>
 
-        <!-- CENTER COLUMN (Main content) -->
         <div class="md:col-span-2 order-1 md:order-2 column-divider main-article">
             <article class="article">
                 <h2 class="text-3xl md:text-5xl text-center mb-6 leading-none">
-                    THE Second AWAKENING:<br>
-                    <span class="italic text-xl md:text-2xl mt-2 block">A Digital Revival of the American Soul</span>
+                    A NEW AWAKENING:<br>
+                    <span class="italic text-xl md:text-2xl mt-2 block">Religion and the Work of Reform</span>
                 </h2>
 
                 <p class="drop-cap text-sm md:text-base mb-6 text-justify leading-relaxed">
-                    Reformers of the current age must look to the digital tools at their disposal to spread the gospel of progress. The press, once bound by iron and ink, now travels at the speed of light. We stand at the precipice of a new era where equality and justice are not merely dreams, but attainable goals for every citizen of the Republic.
+                    Great crowds are gathering in the fields of Kentucky and the towns of New York. The people call it a <strong>Second Great Awakening</strong>. The old ways of the church are changing. Preachers like Charles Finney tell us that God does not pick who is saved before they are born. He says that every person has <strong>Free Will</strong>. You can choose to leave sin behind. You can choose to be saved.
                 </p>
 
                 <div class="pull-quote" id="pullQuote">
-                    “Reform is not inherited. It is rebuilt by every generation.”
+                    "If we can fix our souls, we must fix our country."
                 </div>
 
                 <p class="text-sm md:text-base mb-6 text-justify leading-relaxed">
-                    The movement for temperance, equality, and abolition finds new breath within these coded columns. Let no person say the press has gone silent. We advocate for a labor force of sober, industrious character and a nation of liberated minds.
+                    This new way of thinking does not stay in the church. If a man can make himself better, he can make his town better too. We call this <strong>Perfectionism</strong>. People are no longer waiting for the next world to find peace. They want to end the "national sins" of today. This is why we see so many new groups fighting against liquor, slavery, and the lack of schools. 
                 </p>
 
                 <div class="highlight-box border-2">
-                    <h4 class="text-sm font-bold text-center border-b border-black mb-2 pb-1">Note to the Reader</h4>
+                    <h4 class="text-sm font-bold text-center border-b border-black mb-2 pb-1">Our Simple Duty</h4>
                     <p class="text-xs text-center italic">
-                        This website serves as a historical repository of the great movements that shaped our Republic. Agitate, educate, and organize!
+                        True faith is found in helping others. We must work for the good of everyone. This is what brings the spirit of reform to our streets.
                     </p>
                 </div>
 
@@ -374,17 +364,16 @@
 
                 <div id="continuedText" class="continued mt-6">
                     <p class="text-sm md:text-base text-justify leading-relaxed">
-                        Here the argument deepens. Reform requires repetition, not novelty. The spirit of 1826 is alive in the binary of 2026. True progress is the result of persistent agitation and a refusal to accept the status quo. Join us in the march toward a more perfect union.
+                        The fire of the revival is the same fire that moves the abolitionist and the teacher. We are trying to build a better Republic. We use the Bible to guide our laws and our lives. Every soul saved is a step toward a better nation.
                     </p>
                 </div>
             </article>
         </div>
 
-        <!-- RIGHT COLUMN (Stacks at bottom for mobile) -->
         <div class="md:col-span-1 order-3 md:pl-6 sidebar">
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Transcendental</h2>
-                <p class="text-xs mb-4">Mr. Thoreau has unplugged from the noise of the town to seek the essential facts of life.</p>
+                <p class="text-xs mb-4">Mr. Thoreau has gone to the woods to live simply and find the truth.</p>
                 <a href="transcendentalism.html" class="woodblock-btn text-xs">View his Thoughts</a>
             </section>
 
@@ -392,7 +381,7 @@
 
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Utopian Living</h2>
-                <p class="text-xs mb-4">In pursuit of a more perfect social order, we invite all seekers to our cooperative community.</p>
+                <p class="text-xs mb-4">We are building a community where all work together in peace. Join us.</p>
                 <a href="utopia.html" class="woodblock-btn text-xs">Apply for Residency</a>
             </section>
 
@@ -400,7 +389,7 @@
 
             <section class="mb-8">
                 <h2 class="text-xl font-bold mb-3 border-b-2 border-black pb-1">Temperance</h2>
-                <p class="text-xs mb-4">A cold glass of water is the only true refreshment. Down with the demon rum!</p>
+                <p class="text-xs mb-4">Put away the bottle and drink from the spring. Stay sober for your family.</p>
                 <a href="temperance.html" class="woodblock-btn text-xs">Pledge Sobriety</a>
             </section>
 
@@ -409,7 +398,7 @@
                 <p class="text-[10px] leading-relaxed text-center">
                     "Sojourner Truth" Totes - $2.00<br>
                     "Garrison" Stickers - 50¢<br>
-                    <span class="italic text-[9px] mt-1 block">Proceeds benefit the Reform Society.</span>
+                    <span class="italic text-[9px] mt-1 block">Proceeds help the Reform Society.</span>
                 </p>
             </div>
         </div>
@@ -417,35 +406,32 @@
 
     <footer class="mt-12 pt-6 border-t-4 border-double border-black text-center">
         <p class="text-[11px] font-bold tracking-widest uppercase mb-1">
-            Agitate — Educate — Organize
+            Work — Learn — Organize
         </p>
         <p class="text-[9px] italic opacity-70">
-            Printed on heavy recycled parchment and delivered via the electric ether.
+            Printed on heavy paper and sent through the wires.
         </p>
     </footer>
 
 </div>
 
 <script>
-/* Dynamic Body Padding to prevent Navbar overlap */
 function adjustBodyPadding() {
     const navbarHeight = document.getElementById('navbar').offsetHeight;
     document.body.style.paddingTop = (navbarHeight + 10) + 'px';
 }
 
-/* Mobile Menu Toggle Logic */
 const menuToggle = document.getElementById('menu-toggle');
 const navLinks = document.getElementById('nav-links');
 
 menuToggle.onclick = () => {
     navLinks.classList.toggle('active');
-    adjustBodyPadding(); // Readjust when menu expands
+    adjustBodyPadding();
 };
 
 window.onload = adjustBodyPadding;
 window.onresize = adjustBodyPadding;
 
-/* Typing Animation */
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const titleEl = document.getElementById("masthead");
 const fullText = "The Spirit of Reform";
@@ -465,37 +451,32 @@ if (!prefersReducedMotion) {
     titleEl.textContent = fullText;
 }
 
-/* Fake Date */
 const dateEl = document.getElementById("dynamicDate");
 const fakeDate = new Date();
 fakeDate.setFullYear(1826);
 dateEl.textContent = fakeDate.toDateString();
 
-/* Rotating Quote */
 const quotes = [
     "“Right has no gender; truth has no color”",
     "“Agitate. Educate. Organize.”",
-    "“Silence is consent, neatly dressed”",
+    "“Silence is consent”",
 ];
 document.getElementById("rotatingQuote").textContent =
 quotes[Math.floor(Math.random() * quotes.length)];
 
-/* Daily Sidebar Blurb */
 const blurbs = [
-    "Abolition is the only path to a true Republic.",
-    "Pamphlets circulated before the dawn.",
-    "The North Star remains our steadfast guide."
+    "Abolition is the only way to be free.",
+    "New papers are ready for the morning.",
+    "Follow the North Star to find the way."
 ];
 document.getElementById("dailyBlurb").textContent =
 blurbs[new Date().getDate() % blurbs.length];
 
-/* Continued Section */
 document.getElementById("continueToggle").onclick = () => {
     document.getElementById("continuedText").style.display = "block";
     document.getElementById("continueToggle").style.display = "none";
 };
 
-/* Pull Quote Reveal */
 const pq = document.getElementById("pullQuote");
 window.addEventListener("scroll", () => {
     if (pq.getBoundingClientRect().top < window.innerHeight - 50) {
